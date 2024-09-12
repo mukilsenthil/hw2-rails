@@ -25,6 +25,8 @@ more_movies = [
   :release_date => '24-May-2024'},
   {:title => 'Deadpool & Wolverine', :rating => 'R',
   :release_date => '26-Jul-2024'}
+  {:title => 'Deadpool & Worine', :rating => 'R',
+  :release_date => '26-Jul-2024'}
 ]
 
 more_movies.each do |movie|
