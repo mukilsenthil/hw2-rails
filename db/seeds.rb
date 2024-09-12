@@ -24,8 +24,6 @@ more_movies = [
   {:title => 'Hit Man', :rating => 'R',
   :release_date => '24-May-2024'},
   {:title => 'Deadpool & Wolverine', :rating => 'R',
-  :release_date => '26-Jul-2024'},
-  {:title => 'Deadpool & Worine', :rating => 'R',
   :release_date => '26-Jul-2024'}
 ]
 
