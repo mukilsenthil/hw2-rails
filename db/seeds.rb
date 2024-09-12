@@ -23,12 +23,12 @@ more_movies = [
   :release_date => '15-Aug-2021'}
 ]
 
-# more_movies.each do |movie|
-#   if !Movie.exists?(title: movie[:title])
-#     Movie.create!(movie)  
-#   end
-# end
-
 more_movies.each do |movie|
+  if !Movie.exists?(title: movie[:title])
     Movie.create!(movie)  
+  end
 end
+
+# more_movies.each do |movie|
+#     Movie.create!(movie)  
+# end
