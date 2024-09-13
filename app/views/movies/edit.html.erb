@@ -1,12 +1,12 @@
 <% content_for :title, "Editing movie" %>
 
-<h1>Editing movie</h1>
+<h1 style="font-size: 40px; color: #AA8833">Editing movie</h1>
 
 <%= render "form", movie: @movie %>
 
 <br>
-
-<div>
-  <%= link_to "Show this movie", @movie %> |
-  <%= link_to "Back to movies", movies_path %>
+<hr>
+<div style="text-align: center; padding: 10px 0; font-size: 40px; text-align: center;">
+  <%= link_to "Show this movie", @movie, style: "color: #A0AA00; font-size: 30px" %> |
+  <%= link_to "Back to movies", movies_path, style: "color: #A0AA00; font-size: 30px"  %>
 </div>
