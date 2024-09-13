@@ -4,10 +4,19 @@ class MoviesController < ApplicationController
   # GET /movies or /movies.json
   def index
 
-    column_sort = params[:sort] || 'created_at'
-    direction_sort =  params[:direction] || 'asc'
+    if params[:sort].present?
+      @sort_column = params[:sort]
+      @sort_direction = params[:direction]
+    else
+      # @sort_column = session[:column_sort] || 'created_by'
+      # @sort_direction = session[:direction_sort] || 'asc'
+    end
 
-    @movies = Movie.order("#{column_sort} #{direction_sort}")
+    session[:column_sort] = @sort_column
+    session[:direction_sort] = @sort_direction
+
+    # Apply sorting to the Movie model
+    @movies = Movie.order("#{@sort_column} #{@sort_direction}")
 
   end
 

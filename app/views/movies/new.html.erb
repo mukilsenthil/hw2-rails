@@ -7,5 +7,5 @@
 <hr>
 
 <div style="text-align: center; padding: 10px 0; font-size: 40px; text-align: center;">
-  <%= link_to "Back to movies", movies_path, style: "color: #A0AA00; font-size: 30px" %>
+  <%= link_to "Back to movies", movies_path(sort: session[:column_sort], direction: session[:direction_sort]), style: "color: #A0AA00; font-size: 30px" %>
 </div>

@@ -4,7 +4,7 @@
 
 <div style="text-align: center; padding: 10px 0; font-size: 40px">
   <%= link_to "Edit this movie", edit_movie_path(@movie), style: "color: #A0AA00; font-size: 30px"  %> |
-  <%= link_to "Back to movies", movies_path, style: "color: #A0AA00; font-size: 30px" %>
+  <%= link_to "Back to movies", movies_path(), style: "color: #A0AA00; font-size: 30px" %>
   <hr>
   <%= button_to "Destroy this movie", @movie, method: :delete, style: "color: #FF0000; font-size: 20px" %>
 </div>
