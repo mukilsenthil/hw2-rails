@@ -2,12 +2,13 @@
 
 <% content_for :title, "Movies" %>
 
-<h1>Movies</h1>
+<h1 style="text-align: center">Rotten Potatoes</h1>
+<%# <img src="./../../assets/images/rotten_potato.jpeg" alt="rotten potato" style="display: block; max-width: 100%; height: auto; margin: 20px auto; border: 2px solid #ddd; border-radius: 8px;"> %>
 
-<div id="movies">
-    <table>
+<div id="movies" style="text-align: center; border: 4px solid #ccc; padding: 10px; margin: 10px 10px; background-color: #f9f9f9; border-radius: 12px;" >
+    <table style="width: 100%; border-spacing: 0 10px; margin: 20px 0;">
     <thead>
-      <tr>
+      <tr style="background-color: #A9A9A9; font-size: 1.75em">
         <th>
           <%= link_to "Title", movies_path(sort: 'title', direction: params[:direction] == 'asc' ? 'desc' : 'asc')%>
         </th>
@@ -17,11 +18,12 @@
         <th>
           <%= link_to "Release Date", movies_path(sort: 'release_date', direction: params[:direction] == 'asc' ? 'desc' : 'asc')%>
         </th>
+        <th>Show this Movie</th>
     </tr>
     </thead>
-    <tbody>
+    <tbody style="font-size: 1.25em">
       <% @movies.each do |movie| %>
-        <tr>
+        <tr style="padding: 5px">
           <td> <%= movie.title%> </td>
           <td> <%= movie.rating%> </td>
           <td> <%= movie.release_date%> </td>
@@ -33,14 +35,11 @@
     </tbody>
   </table>
 
-<% if false %>
-  <% @movies.each do |movie| %>
-    <%= render movie %>
-    <p>
-      <%= link_to "Show this movie", movie %>
-    </p>
-  <% end %>
-<% end %>
 </div>
 
-<%= link_to "New movie", new_movie_path %>
+<br>
+<hr>
+
+<div style="text-align: center; padding: 10px 0; font-size: 40px">
+  <%= link_to "New movie", new_movie_path, style: "color: #A0AA00; font-size: 30px"  %>
+</div>
