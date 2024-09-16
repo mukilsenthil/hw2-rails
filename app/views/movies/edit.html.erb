@@ -7,6 +7,6 @@
 <br>
 <hr>
 <div style="text-align: center; padding: 10px 0; font-size: 40px; text-align: center;">
-  <%= link_to "Show this movie", @movie, style: "color: #A0AA00; font-size: 30px" %> |
-  <%= link_to "Back to movies", movies_path(), style: "color: #A0AA00; font-size: 30px"  %>
+  <%= link_to "Show this movie", movie_path(@movie, sort: params[:sort], direction: params[:direction]), style: "color: #A0AA00; font-size: 30px" %> |
+  <%= link_to "Back to movies", movies_path(sort: params[:sort], direction: params[:direction]), style: "color: #A0AA00; font-size: 30px"  %>
 </div>

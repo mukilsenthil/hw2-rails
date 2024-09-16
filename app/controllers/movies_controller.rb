@@ -4,16 +4,8 @@ class MoviesController < ApplicationController
   # GET /movies or /movies.json
   def index
 
-    if params[:sort].present?
-      @sort_column = params[:sort]
-      @sort_direction = params[:direction]
-    else
-      # @sort_column = session[:column_sort] || 'created_by'
-      # @sort_direction = session[:direction_sort] || 'asc'
-    end
-
-    session[:column_sort] = @sort_column
-    session[:direction_sort] = @sort_direction
+      @sort_column = params[:sort] || 'created_at'
+      @sort_direction = params[:direction] || 'asc'
 
     # Apply sorting to the Movie model
     @movies = Movie.order("#{@sort_column} #{@sort_direction}")
@@ -39,7 +31,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to movie_url(@movie), notice: "Movie was successfully created." }
+        format.html { redirect_to movie_url(@movie, sort: params[:sort], direction: params[:direction]), notice: "Movie was successfully created." }
         format.json { render :show, status: :created, location: @movie }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -52,7 +44,7 @@ class MoviesController < ApplicationController
   def update
     respond_to do |format|
       if @movie.update(movie_params)
-        format.html { redirect_to movie_url(@movie), notice: "Movie was successfully updated." }
+        format.html { redirect_to movie_url(@movie, sort: params[:sort], direction: params[:direction]), notice: "Movie was successfully updated." }
         format.json { render :show, status: :ok, location: @movie }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -66,7 +58,7 @@ class MoviesController < ApplicationController
     @movie.destroy!
 
     respond_to do |format|
-      format.html { redirect_to movies_url, notice: "Movie was successfully destroyed." }
+      format.html { redirect_to movies_url(sort: params[:sort], direction: params[:direction]), notice: "Movie was successfully destroyed." }
       format.json { head :no_content }
     end
   end
